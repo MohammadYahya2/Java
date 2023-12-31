@@ -1,0 +1,5 @@
+package Mammal;
+public class Mammal {
+ protected int energy =100;
+ 
+}

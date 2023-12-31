@@ -1,0 +1,21 @@
+package Mammal;
+
+public class Bat extends Mammal {
+
+	public Bat(int energy) {
+		super(energy);
+
+	}
+	public void fly() {
+		energy-=50;
+		System.out.println(" the bat in air");
+	}
+	public void eatHumans() {
+		energy+=25;
+		System.out.println(" the bat so happy");
+	}
+	public void attackTown() {
+		
+	}
+
+}

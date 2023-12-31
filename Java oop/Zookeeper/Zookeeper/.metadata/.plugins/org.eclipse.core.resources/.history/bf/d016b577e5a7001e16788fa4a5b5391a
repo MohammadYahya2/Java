@@ -1,0 +1,15 @@
+package Mammal;
+public class Gorilla extends Mammal {
+
+	public Gorilla(int energy) {
+		super(energy);
+	
+	}
+public void throwSomething() {
+	energy-=5;
+	System.out.println(" that the gorilla has thrown  banan ");
+}
+public void eatBananas() {
+	energy+=10;
+}
+}

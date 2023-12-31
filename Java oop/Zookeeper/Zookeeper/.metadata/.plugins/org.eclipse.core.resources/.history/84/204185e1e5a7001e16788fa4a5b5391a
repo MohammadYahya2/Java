@@ -1,0 +1,10 @@
+package Mammal;
+
+public class Bat extends Mammal {
+
+	public Bat(int energy) {
+		super(energy);
+
+	}
+
+}

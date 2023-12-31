@@ -1,0 +1,11 @@
+package Mammal;
+
+public class test {
+
+	public static void main(String[] args) {
+		Gorilla g=new Gorilla(100);
+		
+
+	}
+
+}
