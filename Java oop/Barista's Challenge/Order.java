@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Order {
     private String name;
     private boolean ready;
-    private ArrayList<Item> items=new ArrayList<>();
+    private ArrayList<Item> items = new ArrayList<>();
 
     public Order() {
 
@@ -66,7 +66,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order [name=" + name + ", ready=" + ready + ", items=" + items 
+        return "Order [name=" + name + ", ready=" + ready + ", items=" + items
                 + ", getOrderTotal()=" + getOrderTotal() + "]";
     }
 
