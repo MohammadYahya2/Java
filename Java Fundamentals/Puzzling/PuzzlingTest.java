@@ -14,8 +14,8 @@ public class PuzzlingTest {
         String[] arr = new String[26];
         Random randMachine = new Random();
         for (int i = 0; i < arr.length; i++) {
-            char randomLetter = (char) (randMachine.nextInt(27)); 
-            
+            char randomLetter = (char) (randMachine.nextInt(26)+'A'); 
+            arr[i] = String.valueOf(randomLetter);
         }
         return arr;
     }
@@ -23,11 +23,13 @@ public class PuzzlingTest {
         String []arr=new String[8];
         Random randMachine = new Random();
         for (int i = 0; i < arr.length; i++){
-        
+        char randomLetter = (char) (randMachine.nextInt(26)+'A');
+            arr[i] = String.valueOf(randomLetter);
         }
+    
+        
         return arr;
     }
-
 
 
 }

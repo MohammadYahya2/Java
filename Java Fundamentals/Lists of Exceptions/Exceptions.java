@@ -17,7 +17,7 @@ public class Exceptions {
 
             } catch (ClassCastException e) {
                 System.out.println("error" + e);
-                System.out.println("Value that triggered the error: " + myList.get(i));
+                System.out.println("Value is triggered  error:" + myList.get(i));
             }
 
         }

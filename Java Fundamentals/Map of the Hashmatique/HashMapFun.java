@@ -13,6 +13,7 @@ public class HashMapFun {
         Set<String> keys = songs.keySet();
         for (String key : keys) {
             System.out.println(key + ": " + songs.get(key));
+            
         }
     }
 }

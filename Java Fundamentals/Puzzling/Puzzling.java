@@ -1,16 +1,21 @@
-import java.util.Random;
-
 public class Puzzling {
-public static void main(String[] args) {
-    // int arr[]=new int[10];
-    // Random randMachine = new Random();
-    // for (int i = 0; i < 10; i++) {
-    //     arr[i] = randMachine.nextInt(21) ;
-    //     System.out.println(arr[i]);
-    // }
-    
-    // Puzzling test=new Puzzling();
-    // System.out.println(test.getTenRolls());
+    public static void main(String[] args) {
+        PuzzlingTest puzzlingTest = new PuzzlingTest();
+        int[] testing = puzzlingTest.getTenRolls();
 
-}
+        for (int roll : testing) {
+            System.out.print(roll + " ");
+        }
+        String[] randomLetters = puzzlingTest.getRandomLetter();
+        System.out.println();
+        for (String letter : randomLetters) {
+            System.out.print(letter + " ");
+        }
+        System.out.println();
+        String[] password = puzzlingTest.generatePassword();
+        for (String character : password) {
+            System.out.print(character);
+        }
+        System.out.println();
+    }
 }
