@@ -72,4 +72,5 @@ public class BankAccount {
 				+ ", depositChecking" + getCheckingBalance() + ", depositSavings=" + getSavingsBalance()
 				+ "]";
 	}
+
 }
