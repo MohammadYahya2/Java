@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.javaspring.booksapi.models.Book;
 import com.javaspring.booksapi.services.BookService;
 
-
-
 @RestController
 public class BooksApi {
 	private final BookService bookService;
