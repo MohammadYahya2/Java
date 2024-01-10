@@ -6,8 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.BurgerTracker.models.Burger;
 import com.example.BurgerTracker.services.BurgerService;
@@ -40,6 +42,25 @@ public class BurgerController {
             return "redirect:/";
         }
     }
+    @RequestMapping("/burger/{id}/edit")
+    public String edit(@PathVariable("id") Long id, Model model) {
+    	Burger burger = burgerService.findBurger(id);
+        model.addAttribute("burger", burger);
+        return "edit.jsp";
+    }
+    
+    @PostMapping("/burger/{id}")
+    public String update(@PathVariable("id") Long id, @Valid @ModelAttribute("burger") Burger burger, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("burger", burger);
+            return "edit.jsp";
+        } else {
+            burger.setId(id);  
+            burgerService.updateBurger(burger);
+            return "redirect:/";
+        }
+    }
+
     
     
 }

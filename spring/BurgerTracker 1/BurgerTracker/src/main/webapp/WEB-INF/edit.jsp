@@ -4,7 +4,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <%@ page isErrorPage="true"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,32 +11,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Burger Tracker</h1>
-
-
-	<table>
-	
-		<tr>
-		
-			<th>Burger Name</th>
-			<th>Restaurant Name</th>
-			<th>Rating(out of 5)</th>
-			<th>Action</th>
-		</tr>
-		 <c:forEach var="burger" items="${burgers}">
-		<tr>
-		
-			<td>${burger.getBurgerName()}</td>
-			<td>${burger.getRestaurantname()}</td>
-			<td>${burger.getRating()}</td>
-			<td><a href="/burger/{id}">edit</a></td>
-		</tr>
-		</c:forEach>
-
-	</table>
-	<h2>Add a Burger</h2>
-	
-	<form:form action="/burger" method="post" modelAttribute="burger">
+	<h1>Edit Burger</h1>
+	<form:form action="/burger/${burger.id}" method="post"
+		modelAttribute="book">
+		<input type="hidden" name="_method" value="put">
 		<p>
 			<form:label path="burgerName">burgerName</form:label>
 			<form:errors path="burgerName" />
@@ -60,9 +37,6 @@
 		</p>
 		<input type="submit" value="Submit" />
 	</form:form>
-
-
-
 
 </body>
 </html>

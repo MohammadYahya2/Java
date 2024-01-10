@@ -1,12 +1,15 @@
 package com.example.BurgerTracker.services;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
 import com.example.BurgerTracker.models.Burger;
 import com.example.BurgerTracker.repositories.BurgerRepositories;
+
+
 
 @Service
 public class BurgerService {
@@ -35,16 +38,13 @@ public class BurgerService {
 	}
 
 
-	public Burger updateBurger(Long id, String Burgername, String Restaurantname, Integer Rating, String noting) {
-		Burger updateBurger = findBurger(id);
-		updateBurger.setBurgerName(Burgername);
-		updateBurger.setRestaurantname(Restaurantname);
-		updateBurger.setRating(Rating);
-		updateBurger.setNoting(noting);
-		return burgerRepositories.save(updateBurger);
+	public Burger updateBurger(Burger burger) {
+	    return burgerRepositories.save(burger);
 	}
+
 
 	public void deleteBurger(Long id) {
 		burgerRepositories.deleteById(id);
 	}
+
 }

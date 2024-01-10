@@ -62,7 +62,7 @@ public class Burger {
 	}
 	public void setBurgerName(String burgerName) {
 		this.burgerName = burgerName;
-	}
+	}	
 	public String getRestaurantname() {
 		return restaurantname;
 	}
