@@ -8,8 +8,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.BurgerTracker.models.Burger;
 import com.example.BurgerTracker.services.BurgerService;
@@ -22,10 +22,6 @@ public class BurgerController {
     public BurgerController(BurgerService burgerService){
         this.burgerService = burgerService;
     }
-//    @RequestMapping("/")
-//	public List<Burger> index1(){
-//		return burgerService.allBurger();
-//	}
     @RequestMapping("/")
     public String index(@ModelAttribute("burger") Burger burger,Model model ) {
     	List<Burger> burgers=burgerService.allBurger();
@@ -44,23 +40,22 @@ public class BurgerController {
     }
     @RequestMapping("/burger/{id}/edit")
     public String edit(@PathVariable("id") Long id, Model model) {
-    	Burger burger = burgerService.findBurger(id);
+        Burger burger = burgerService.findBurger(id);
         model.addAttribute("burger", burger);
         return "edit.jsp";
     }
-    
-    @PostMapping("/burger/{id}")
-    public String update(@PathVariable("id") Long id, @Valid @ModelAttribute("burger") Burger burger, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            model.addAttribute("burger", burger);
-            return "edit.jsp";
-        } else {
-            burger.setId(id);  
-            burgerService.updateBurger(burger);
-            return "redirect:/";
-        }
+    @PutMapping("/burger/{id}")
+    public String update(@Valid @ModelAttribute("burger") Burger burger, BindingResult result, Model model) {
+      if (result.hasErrors()) {
+        model.addAttribute("burger", burger);
+        return "edit.jsp";
+      } else {
+        burgerService.updateBurger(burger);
+        return "redirect:/";
+      }
     }
 
-    
-    
-}
+    }
+
+
+

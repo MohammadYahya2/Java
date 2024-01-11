@@ -38,10 +38,9 @@ public class BurgerService {
 	}
 
 
-	public Burger updateBurger(Burger burger) {
-	    return burgerRepositories.save(burger);
-	}
-
+	 public Burger updateBurger(Burger burger) {
+	        return  burgerRepositories.save(burger);
+	      }
 
 	public void deleteBurger(Long id) {
 		burgerRepositories.deleteById(id);

@@ -30,7 +30,7 @@
 			<td>${burger.getBurgerName()}</td>
 			<td>${burger.getRestaurantname()}</td>
 			<td>${burger.getRating()}</td>
-			<td><a href="/burger/{id}">edit</a></td>
+			<td><a href="/burger/${burger.id}/edit">edit</a></td>
 		</tr>
 		</c:forEach>
 
