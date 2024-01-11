@@ -19,43 +19,45 @@ import jakarta.validation.Valid;
 @Controller
 public class BurgerController {
 	private final BurgerService burgerService;
-    public BurgerController(BurgerService burgerService){
-        this.burgerService = burgerService;
-    }
-    @RequestMapping("/")
-    public String index(@ModelAttribute("burger") Burger burger,Model model ) {
-    	List<Burger> burgers=burgerService.allBurger();
-    	model.addAttribute("burgers",burgers);
+
+	public BurgerController(BurgerService burgerService) {
+		this.burgerService = burgerService;
+	}
+
+	@RequestMapping("/")
+	public String index(@ModelAttribute("burger") Burger burger, Model model) {
+		List<Burger> burgers = burgerService.allBurger();
+		model.addAttribute("burgers", burgers);
 		return "index.jsp";
-    	
-    }
-    @PostMapping("/burger")
-    public String createburger(@Valid @ModelAttribute("burger") Burger burger, BindingResult result) {
-        if (result.hasErrors()) {
-            return "index.jsp";
-        } else {
-        	burgerService.createBurger(burger);
-            return "redirect:/";
-        }
-    }
-    @RequestMapping("/burger/{id}/edit")
-    public String edit(@PathVariable("id") Long id, Model model) {
-        Burger burger = burgerService.findBurger(id);
-        model.addAttribute("burger", burger);
-        return "edit.jsp";
-    }
-    @PutMapping("/burger/{id}")
-    public String update(@Valid @ModelAttribute("burger") Burger burger, BindingResult result, Model model) {
-      if (result.hasErrors()) {
-        model.addAttribute("burger", burger);
-        return "edit.jsp";
-      } else {
-        burgerService.updateBurger(burger);
-        return "redirect:/";
-      }
-    }
+	}
+	@PostMapping("/burger")
+	public String createburger(@Valid @ModelAttribute("burger") Burger burger, BindingResult result, Model model) {
+		if (result.hasErrors()) {
+			List<Burger> burgers = burgerService.allBurger();
+			model.addAttribute("burgers", burgers);
+			return "index.jsp";
+		} else {
+			burgerService.createBurger(burger);
+			return "redirect:/";
+		}
+	}
 
-    }
+	@RequestMapping("/burger/{id}/edit")
+	public String edit(@PathVariable("id") Long id, Model model) {
+		Burger burger = burgerService.findBurger(id);
+		model.addAttribute("burger", burger);
 
+		return "edit.jsp";
+	}
 
-
+	@PutMapping("/burger/{id}")
+	public String update(@Valid @ModelAttribute("burger") Burger burger, BindingResult result, Model model) {
+		if (result.hasErrors()) {
+			model.addAttribute("burger", burger);
+			return "edit.jsp";
+		} else {
+			burgerService.updateBurger(burger);
+			return "redirect:/";
+		}
+	}
+}
