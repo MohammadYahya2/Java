@@ -22,10 +22,49 @@
 form { 
 margin: 0 auto; 
 width:700px;
+.container{
+    margin-top:200px;
+}
+
+.btn:hover{
+    color:#fff;
+}
+
+.input-text:focus{
+       
+  
+    box-shadow: 0px 0px 0px;
+    border-color:#f8c146;
+    outline: 0px;
+}
+
+.form-control {
+    border: 1px solid #f8c146;
+}
+
 }
 
 </style>
    <h1>Save Travels</h1>
+   <div class="container justify-content-center">
+    
+    <div class="row">
+
+       <div class="col-md-8">
+           
+           <div class="input-group mb-3">
+  <input type="text" class="form-control input-text" placeholder="Search products...." aria-label="Recipient's username" aria-describedby="basic-addon2">
+  <div class="input-group-append">
+    <button class="btn btn-outline-warning btn-lg" type="button">Search<i class="fa fa-search" style="margin-left: 10px"></i></button>
+  </div>
+</div>
+           
+       </div>        
+        
+    </div>
+    
+    
+</div>
 	<table class="table table-bordered table-striped">
 	<thead>
 		<tr>

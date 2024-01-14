@@ -10,4 +10,6 @@ import com.example.dojo.models.Dojo;
 @Repository
 public interface DojoRepository extends CrudRepository<Dojo, Long> {
 	List<Dojo> findAll();
+	
+	Dojo 
 }

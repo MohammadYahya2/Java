@@ -29,8 +29,9 @@ public class Dojo {
 	@Size(min=1, max=255)
 	private String name;
 	
-	@OneToMany(mappedBy="dojo", fetch = FetchType.LAZY)
+	ManyToMany(mappedBy="dojo", fetch = FetchType.LAZY)
 	private List<Ninja> ninjas;
+	
 	
 	@Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")

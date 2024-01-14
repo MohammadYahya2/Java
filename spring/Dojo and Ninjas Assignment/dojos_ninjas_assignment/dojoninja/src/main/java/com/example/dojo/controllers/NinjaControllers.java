@@ -43,8 +43,8 @@ public class NinjaControllers {
 	    	 ninjaService.createNinja(ninja);
 		     return "redirect:/ninjas/new";
 	     } 
-		
 	}
+	
 	@GetMapping("dojos/{id}")
 	public String showDojo(@ModelAttribute("id") Long id, Model model) {
 		Dojo dojo = dojoService.findDojo(id);
