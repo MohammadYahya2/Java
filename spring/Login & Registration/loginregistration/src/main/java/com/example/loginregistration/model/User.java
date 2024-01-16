@@ -1,14 +1,17 @@
 package com.example.loginregistration.model;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
@@ -16,6 +19,7 @@ import jakarta.persistence.Transient;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
+
 
 @Entity
 @Table(name = "users")
@@ -41,6 +45,9 @@ public class User {
 	@NotEmpty(message = "Confirm Password is required!")
 	@Size(min = 8, max = 128, message = "Confirm Password must be between 8 and 50 characters")
 	private String confirm;
+	
+	 @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+	    private List<Book> books;
 
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")

@@ -18,12 +18,33 @@
 </head>
 <body>
 <p>${email}</p>
-<p>${userName}</p>
+<h1>Welcome,${userName}</h1>
+
+ <a href="/books/new"  >+Add a to my shelf!</a>
+<%-- 
 <div class="d-flex justify-content-end">
-  <a href="/logout" class="btn btn-danger" style="margin:10px">Log Out</a>
+  <a href="/logout" class="btn btn-danger" >Log Out</a>
 </div>
+ --%>
 
-
-	
+<h5>Books form everyone's shelves:</h5>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th scope="col">ID</th>
+			<th scope="col">Title</th>
+			<th scope="col">Author Name</th>
+			<th scope="col">Posted By</th>
+		</tr>
+		</thead>
+		<c:forEach items="${books}" var="book" >
+			<tr>
+				<td ><c:out value="${book.id}" /></td>
+				<td><a href="/show/${book.id}">${book.title}</a></td>
+				<td><c:out value="${book.author}" /></td>
+				<td><c:out value="${book.user.userName}" /></td>
+			</tr>
+		</c:forEach>
+	</table>
 </body>
 </html>
